@@ -1,0 +1,37 @@
+name: Test and build
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    steps:
+      - uses: actions/checkout@v4
+      - name: install uv
+        uses: astral-sh/setup-uv@v5
+      - name: install dependencies
+        run: |
+          uv sync
+      - name: create test database
+        env:
+          DATABASE_URL: 'postgresql://localhost:5432/capstone_starter_test?user=capstone_starter&password=capstone_starter'
+        run: |
+          psql --host localhost --username postgres < databases/create_databases.sql
+          uv run alembic upgrade head
+      - name: run tests
+        run: |
+          uv run -m unittest
+      - name: build container
+        run: |
+          uv pip compile pyproject.toml -o requirements.txt
+          docker build -t capstone-starter:${{ github.sha }} .  

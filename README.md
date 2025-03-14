@@ -3,7 +3,7 @@
 A capstone starter application. 
 * See public-facing URL here: ADD ONCE DEPLOYED - HOMEWORK 5
 * For current project overview and architecture diagrams, see: https://github.com/coloradocollective/s25-team-6-capstone/wiki/Overview
-* For user stories we are working on, see: https://github.com/orgs/coloradocollective/projects/5/views/1
+* For GitHub project with user stories we are working on, see: https://github.com/orgs/coloradocollective/projects/5/views/1
 
 ## Technology stack
 

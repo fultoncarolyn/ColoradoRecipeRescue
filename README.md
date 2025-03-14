@@ -1,6 +1,9 @@
 # Capstone Starter
 
-A capstone starter application.
+A capstone starter application. 
+* See public-facing URL here: ADD ONCE DEPLOYED - HOMEWORK 5
+* For current project overview and architecture diagrams, see: https://github.com/coloradocollective/s25-team-6-capstone/wiki/Overview
+* To see user stories we are working on, see: https://github.com/orgs/coloradocollective/projects/5/views/1
 
 ## Technology stack
 
